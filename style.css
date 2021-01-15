@@ -1,5 +1,10 @@
 /* Import */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap");
+/* Variaveis */
+:root{
+    --dark-blue: #363f5f;
+    --dark-green: #2d4a22;
+}
 /* Global */
 * {
   margin: 0;
@@ -7,24 +12,75 @@
   box-sizing: border-box;
 }
 
-body{
-    background: #F0F2F5;
-    font-family: 'Poppins', sans-serif;
-}
-/* HEADER */
-header{
-    background:#2D4A22;
-    padding: 2rem 0 10rem;
-    text-align: center;
+body {
+  background: #f0f2f5;
+  font-family: "Poppins", sans-serif;
 }
 
-#logo{
-    color: #FFF;
-    font-weight: 100; 
+.container {
+  width: min(90vw, 800px);
+  margin: auto;
+}
+/* Titles */
+h2 {
+  margin-top: 3.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--dark-blue);
+
+  font-weight: normal;
+}
+/* HEADER */
+header {
+  background: var(--dark-green);
+  padding: 2rem 0 10rem;
+  text-align: center;
+}
+
+#logo {
+  color: #fff;
+  font-weight: 100;
 }
 
 /* MAIN - Balance */
-#balance{
+#balance {
+  margin-top: -8rem;
+}
+
+#balance h2 {
+  color: #fff;
+  margin-top: 0;
+}
+/* Cards */
+.card{
+    background: #FFF;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    color: var(--dark-blue);
+    border-radius: 0.25rem;
+}
+
+.card h3{
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+.card p{
+    font-size: 2rem;
+    line-height: 3rem;
+
+    margin-top: 1rem;
+}
+
+.card.total{
+    background: #49aa26;
+    color: white;
+}
+
+/* MAIN - Transaction*/
+#transaction{
     
 }
 /* FOOTER */
+footer {
+  text-align: center;
+}
