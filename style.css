@@ -1,6 +1,30 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+/* Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap');
+/* Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+    background: #F0F2F5;
+    font-family: 'Poppins', sans-serif;
+}
+/* HEADER */
+header{
+    background:#2D4A22;
+    padding: 2rem 0 10rem;
+    text-align: center;
+}
+
+#logo{
+    color: #FFF;
+    font-weight: 100; 
+}
+
+/* MAIN - Balance */
+#balance{
     
 }
+/* FOOTER */
