@@ -21,6 +21,18 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 .container {
   width: min(90vw, 800px);
   margin: auto;
@@ -99,6 +111,11 @@ header {
 }
 
 /* MAIN - Transaction*/
+#transaction{
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
 #data-table {
   width: 100%;
   border-spacing: 0 0.5rem;
@@ -155,3 +172,15 @@ footer {
 }
 
 /* Responsive */
+@media (min-width: 800px){
+  html{
+    font-size: 87.5%;
+  }
+
+  #balance{
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+}
