@@ -55,10 +55,50 @@ a:hover {
   color: #00b4d8;
 }
 
+button{
+  width: 100%;
+  height: 50px;
+
+  border: none;
+  border-radius: 0.25rem;
+
+  color: #FFF;
+  background-color: var(--dark-very-blue);
+  
+  cursor: pointer;
+}
+
+button:hover{
+  background:#00b4d8;
+  opacity: 1;
+  transition: all 0.5s ease;
+
+}
+
 .button.new {
   display: inline-block;
-  margin-bottom: 0.8rem;
+  margin-bottom: .8rem;
 }
+
+.button.cancel{
+  color: #e92929;
+  border: 2px solid #e92929;
+  border-radius: 0.25rem;
+  
+  height: 50px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0.6;
+}
+
+.button.cancel:hover{
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
 /* HEADER */
 header {
   background: var(--dark-very-blue);
@@ -160,6 +200,71 @@ td.income {
 
 td.expense {
   color: #e92929;
+}
+
+/* MODAL */
+.modal-overlay{
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, .7);
+
+  position: fixed;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-overlay.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal{
+  background-color: #F0F2f5;
+  padding: 2.4rem;
+}
+
+/* FORM */
+#form{
+  max-width: 500px;
+}
+
+#form h2{
+  margin-top: 0;
+}
+
+#form form input{
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.8rem;
+
+  width: 100%;
+}
+
+.input-group{
+  margin-top: 0.8rem;
+}
+
+.input-group small{
+  opacity: 0.4;
+}
+
+.input-group.actions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-group.actions .button,
+.input-group.actions button{
+  width: 48%;
+  
 }
 
 /* FOOTER */
