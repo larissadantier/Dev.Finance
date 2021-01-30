@@ -15,26 +15,35 @@ const Modal = {
 };
 
 const transactions = [{
-    id:1,
     description: 'Luz',
     amount: -50000,
     date: '23/01/2021'
 }, {
-    id:2,
     description: 'Criação de Website',
     amount: 500000,
     date: '24/01/2021'
 }, {
-    id:3,
     description: 'Aluguel',
     amount: -20000,
     date: '26/01/2021'
 }];
 
 const Transaction = {
+    all: transactions,
+
+    add(transction){
+        Transaction.all.push(transction)
+
+        App.reload()
+    },
+    remove(index){
+        Transaction.all.splice(index, 1)
+
+        App.reload()
+    },
     incomes(){
         let income = 0;
-        transactions.forEach((transaction) => {
+        Transaction.all.forEach((transaction) => {
             if(transaction.amount > 0){
                 income += transaction.amount;
             }
@@ -44,7 +53,7 @@ const Transaction = {
     },
     expenses(){
         let expense = 0;
-        transactions.forEach((transaction) => {
+        Transaction.all.forEach((transaction) => {
             if(transaction.amount < 0){
                 expense += transaction.amount;
             }
@@ -53,8 +62,7 @@ const Transaction = {
         return expense
     },
     total(){
-        return "Discover"
-        // Entradas - Saídas
+        return Transaction.incomes() + Transaction.expenses();
     }
 };
 
@@ -82,15 +90,18 @@ const DOM =  {
     updateBalance(){
         document.
         getElementById('incomeDisplay')
-        .innerHTML = Transaction.incomes();
+        .innerHTML = Utils.formatCurrency(Transaction.incomes());
 
         document.
         getElementById('expenseDisplay')
-        .innerHTML = Transaction.expenses();
+        .innerHTML = Utils.formatCurrency(Transaction.expenses());
 
         document.
         getElementById('totalDisplay')
-        .innerHTML = Transaction.total()
+        .innerHTML = Utils.formatCurrency(Transaction.total());
+    },
+    clearTransactions(){
+        DOM.transactionsContainer.innerHTML = ""
     }
 }
 
@@ -112,9 +123,19 @@ const Utils = {
 }
 
 
+const App = {
+    init(){
+        Transaction.all.forEach((transaction) => {
+            DOM. addTransaction(transaction);
+        })
+        
+        DOM.updateBalance()
+    },
+    reload(){
+        DOM.clearTransactions()
+        App.init()
+    } 
+}
 
-transactions.forEach(function(transaction) {
-    DOM. addTransaction(transaction);
-})
 
-DOM.updateBalance()
+App.init()
