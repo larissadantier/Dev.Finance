@@ -14,22 +14,20 @@ const Modal = {
     }
 };
 
-const transactions = [{
-    description: 'Luz',
-    amount: -50000,
-    date: '23/01/2021'
-}, {
-    description: 'Criação de Website',
-    amount: 500000,
-    date: '24/01/2021'
-}, {
-    description: 'Aluguel',
-    amount: -20000,
-    date: '26/01/2021'
-}];
-
 const Transaction = {
-    all: transactions,
+    all: [{
+        description: 'Luz',
+        amount: -50000,
+        date: '23/01/2021'
+    }, {
+        description: 'Criação de Website',
+        amount: 500000,
+        date: '24/01/2021'
+    }, {
+        description: 'Aluguel',
+        amount: -20000,
+        date: '26/01/2021'
+    }],
 
     add(transction){
         Transaction.all.push(transction)
@@ -122,6 +120,47 @@ const Utils = {
     }
 }
 
+const Form = {
+    description: document.querySelector('input#description'),
+    amount: document.querySelector('input#amount'),
+    date: document.querySelector('input#date'),
+
+    getValues(){
+        return {
+            description: Form.description.value,
+            amount: Form.amount.value,
+            date: Form.date.value
+        }  
+    },
+    validateFields(){
+        const {description, amount, date} = Form.getValues()
+        if(description.trim() === "" || 
+           amount.trim() === "" || 
+           date.trim() === ""){
+            throw new Error("Por favor, preencha todos os campos")
+        }
+    },
+    submit(event){
+        event.preventDefault()
+
+        try {
+            // Verificar se todas as informações foram preenchidas
+            Form.validateFields()
+            // Formatar os dados para Salvar
+
+            // Salvar
+
+            // Apagar os dados do formulario
+
+            // Modal feche
+
+            // Atualizar aplicação
+        } catch (error) {
+            alert(error.message)
+        }
+        
+    }
+}
 
 const App = {
     init(){
